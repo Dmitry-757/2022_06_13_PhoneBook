@@ -11,7 +11,6 @@ public class Main {
     //public static PhoneBook phoneBook = PhoneBook.getInstance();
 
     public static void main(String[] args) {
-
         Contact contact1 = new Contact("Pupkin");
         try {
             contact1.addNewNumber(11111, "home");
@@ -50,6 +49,21 @@ public class Main {
         System.out.println();
         System.out.println("let`s try to find non-existent contact by name `Popkin`");
         PhoneBook.printContactByName("Popkin");
+
+        System.out.println("************************************************");
+        System.out.println("save our book to file...");
+        Service.saveBook();
+        System.out.println("now let`s to clear book...");
+        PhoneBook.clear();
+        System.out.println("\nlet`s print all phone book:");
+        PhoneBook.printAllBook();
+
+        System.out.println("************************************************");
+        System.out.println("read book from file...");
+        Service.readBook();
+        System.out.println("\nlet`s print all phone book:");
+        PhoneBook.printAllBook();
+
 
     }
 }

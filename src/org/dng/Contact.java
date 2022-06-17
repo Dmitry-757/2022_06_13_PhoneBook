@@ -1,10 +1,11 @@
 package org.dng;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Contact implements Comparable<Contact>{
+public class Contact implements Serializable, Comparable<Contact>{
     private HashMap<Integer, String> contactPhoneMap = new HashMap<>();
     private String name;
 
