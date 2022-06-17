@@ -6,8 +6,8 @@ import java.util.Map;
 
 
 public class Contact implements Serializable, Comparable<Contact>{
-    private HashMap<Integer, String> contactPhoneMap = new HashMap<>();
-    private String name;
+    private final HashMap<Integer, String> contactPhoneMap = new HashMap<>();
+    private final String name;
 
     public Contact(String name) {
         this.name = name;
