@@ -30,7 +30,7 @@ public class Contact implements Serializable, Comparable<Contact>{
         PhoneBook.addNewRecord(phoneNumber, this);
     }
 
-    @NonCLI
+
     public String getContactInfo(){
         String res = toString();
 

@@ -1,12 +1,10 @@
 package org.dng;
 
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
 import java.util.List;
 
-@CodeVersion(version = "0.1", description = "phone book realization", lastModification = "2022.06.06")
+@org.dng.CodeVersion(version = "0.1", description = "phone book realization", lastModification = "2022.06.18")
 public class PhoneBook {
     private static HashMap<Integer, Contact> phoneBookMap = new HashMap<>();
     //private static HashMap<String, Contact> contactBookMap = new HashMap<>();

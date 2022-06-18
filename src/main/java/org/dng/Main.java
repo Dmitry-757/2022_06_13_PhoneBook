@@ -38,6 +38,7 @@ public class Main {
         System.out.println("\nlet`s print all phone book:");
         PhoneBook.printAllBook();
 
+        /*
         System.out.println("let`s try to find owner of phone 33333 (it is Sidorov)");
         PhoneBook.printContactByPhone(33333);
         System.out.println();
@@ -63,7 +64,9 @@ public class Main {
         Service.readBook();
         System.out.println("\nlet`s print all phone book:");
         PhoneBook.printAllBook();
+        */
 
+        System.out.println(ServiceJSON.getJSON(PhoneBook.getPhoneBookMap()));
 
     }
 }
