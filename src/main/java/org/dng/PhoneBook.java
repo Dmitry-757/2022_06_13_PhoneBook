@@ -1,6 +1,7 @@
 package org.dng;
 
 import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class PhoneBook {
         phoneBookMap.clear();
     }
 
+
     public static boolean isNumberPresent(int phoneNumber) {
         return phoneBookMap.containsKey(phoneNumber);
     }
@@ -30,7 +32,31 @@ public class PhoneBook {
             throw new Exception("This number is already present!");
         }
         phoneBookMap.put(phoneNumber, contact);
-        //contactBookMap.put(contact.getName(), phoneNumber);
+    }
+
+    public static void deleteRecord(int phoneNumber, @NotNull Contact contact) throws Exception {
+        if (!phoneBookMap.containsKey(phoneNumber)) {
+            throw new Exception("This number is not present!");
+        }
+        phoneBookMap.remove(phoneNumber, contact);
+    }
+
+    public static void deleteRecord(int phoneNumber) throws Exception {
+        if (!phoneBookMap.containsKey(phoneNumber)) {
+            throw new Exception("This number is not present!");
+        }
+        phoneBookMap.remove(phoneNumber);
+    }
+
+    public static void deleteRecord(@NotNull String name) {
+        List<Contact> contactList = getContactByName(name);
+
+//        contactList.forEach(contact -> contact.recivePhoneNumberList()
+        contactList.forEach(contact -> contact.getPhoneNumberList()
+                .forEach(phNumber -> phoneBookMap.remove(phNumber))
+        );
+
+                //phoneBookMap.remove(contact.getPhoneNumberList()));
     }
 
 
@@ -44,13 +70,6 @@ public class PhoneBook {
         return phoneBookMap.values().stream()
                 .filter(contact -> name.equals(contact.getName()))
                 .toList();
-
-//                .filter(es -> name.equals(es.getValue().getName()))
-//                .map(Map.Entry::getValue)
-//                .toList();
-
-//                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue));
-
     }
 
     public static void printContactByPhone(int phoneNumber) {
@@ -74,7 +93,7 @@ public class PhoneBook {
         }
         if (someBody != null) {
             if (someBody.size() != 0) {
-                someBody.forEach(v -> System.out.println(v.getContactInfo()));
+                someBody.forEach(v -> System.out.println(v.contactInfo()));
                 //System.out.println(someBody.getContactInfo());
             } else
                 System.out.println("Contact with name `" + name + "` was not find");
@@ -90,7 +109,7 @@ public class PhoneBook {
                 .distinct()
                 .toList()
                 .stream().sorted()
-                .forEach(v -> System.out.println(v.getContactInfo()))
+                .forEach(v -> System.out.println(v.contactInfo()))
         ;
 
     }

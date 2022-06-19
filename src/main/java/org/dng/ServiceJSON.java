@@ -25,7 +25,7 @@ public class ServiceJSON {
         {
             try {
                 jsonString = objectMapper.writeValueAsString(item);
-                System.out.println(jsonString);
+                //System.out.println(jsonString);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
@@ -38,7 +38,7 @@ public class ServiceJSON {
         //ObjectMapper objectMapper = new ObjectMapper();
 
         {
-            try(FileOutputStream fos = new FileOutputStream(fileName)) {
+            try(FileOutputStream fos = new FileOutputStream(fileName,false)) {
                 objectMapper.writeValue(fos, item);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
