@@ -95,6 +95,25 @@ public class Main {
             PhoneBook.setPhoneBookMap(hm);
         System.out.println("\nlet`s print all phone book:");
         PhoneBook.printAllBook();
+
+        System.out.println("***************************************************************");
+        System.out.println("convert our book to JSON and save to file by FileWriter...");
+        ServiceJSON.writeJSONToFile2(PhoneBook.getPhoneBookMap());
+        System.out.println("now let`s to clear book...");
+
+        PhoneBook.clear();
+        System.out.println("\nlet`s print all phone book:");
+        PhoneBook.printAllBook();
+
+        System.out.println("************************************************");
+        System.out.println("read JSON from file by FileReader and try to convert it to phoneBookMap");
+        HashMap<Integer, Contact> hm2 = ServiceJSON.readJSONFromFile2();
+        if (hm != null)
+            PhoneBook.setPhoneBookMap(hm2);
+        System.out.println("\nlet`s print all phone book:");
+        PhoneBook.printAllBook();
+
+
         //************************ Serealising/Deserializing to/from JSON and FileIO Section *********
         //********************************************************************************************
 
