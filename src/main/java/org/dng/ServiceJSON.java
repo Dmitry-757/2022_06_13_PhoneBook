@@ -50,8 +50,8 @@ public class ServiceJSON {
     //using fileWriter
     public static void writeJSONToFile2(Object item) {
         {
-            try(FileWriter fr = new FileWriter(fileName2)) {
-                objectMapper.writeValue(fr, item);
+            try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName2))) {
+                objectMapper.writeValue(bw, item);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
